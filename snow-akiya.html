@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Snow Akiya</title>
+<meta name="description" content="Cheap Japanese houses within 30 minutes of a ski lift, checked for snow load, winter access and hazards. Weekly, in English.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Shippori+Mincho:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Single light theme by design: snow country in daylight */
+:root{
+  color-scheme: light;
+  --snow:#F3F6F7; --paper:#FFFFFF; --ink:#13232E; --slate:#3E6D8E; --mist:#C9D6DE;
+  --cedar:#2F4A3A; --lantern:#C8741E; --muted:#58707F;
+  --display:"Archivo",system-ui,sans-serif; --jp:"Shippori Mincho","Yu Mincho",serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--snow);color:var(--ink);font-family:var(--display);font-stretch:100%;line-height:1.65;font-size:17px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+a{color:var(--slate)}
+:focus-visible{outline:3px solid var(--lantern);outline-offset:2px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(243,246,247,.94) 0%,rgba(243,246,247,.82) 45%,rgba(243,246,247,.25) 100%),url(img/snow-house.jpg) center 60%/cover;border-bottom:1px solid var(--mist)}
+.photo{margin:0;position:relative;overflow:hidden}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;max-width:100%}
+.photo figcaption{position:absolute;left:12px;bottom:10px;font-size:.75rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.strip{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;margin-bottom:28px}.strip .photo{height:clamp(220px,30vw,340px)}
+@media (max-width:820px){.strip{grid-template-columns:1fr}}
+#snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%;display:block}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;padding-block:72px 120px;align-items:end}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+h1{font-stretch:75%;font-weight:800;font-size:clamp(2.4rem,6.4vw,4.6rem);line-height:.98;margin:14px 0 18px;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--slate)}
+.lead{font-size:1.12rem;max-width:34em;color:#2B4252;margin:0 0 28px}
+.signup{display:flex;gap:8px;flex-wrap:wrap;max-width:520px}
+.signup input{flex:1 1 230px;padding:14px 16px;font:inherit;border:1.5px solid var(--ink);border-radius:2px;background:var(--paper);color:var(--ink)}
+.signup button{padding:14px 22px;font:inherit;font-weight:700;letter-spacing:.02em;border:0;border-radius:2px;background:var(--ink);color:var(--snow);cursor:pointer}
+.signup button:hover{background:var(--cedar)}
+.fine{font-size:.82rem;color:var(--muted);margin-top:10px}
+.ok{font-weight:700;color:var(--cedar)}
+.gauge{justify-self:end;background:rgba(255,255,255,.75);backdrop-filter:blur(4px);border:1px solid var(--mist);padding:18px 20px;width:100%;max-width:280px}
+.gauge .lbl{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gauge .jp{font-family:var(--jp);font-size:1rem;color:var(--muted)}
+.gauge .depth{font-stretch:62%;font-weight:800;font-size:4.2rem;line-height:1;font-variant-numeric:tabular-nums}
+.gauge .depth small{font-size:1.4rem;font-stretch:100%}
+.gauge .bar{height:8px;background:var(--mist);margin-top:12px;position:relative}
+.gauge .bar i{position:absolute;left:0;top:0;bottom:0;width:77%;background:var(--slate)}
+.gauge p{margin:10px 0 0;font-size:.85rem;color:#2B4252}
+
+section{padding-block:72px}
+h2{font-stretch:80%;font-weight:800;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.08;margin:0 0 12px;text-wrap:balance}
+.intro{max-width:40em;color:#2B4252;margin:0 0 36px}
+
+/* Problem: three checks */
+.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink)}
+.check{padding:22px 22px 26px;border-right:1px solid var(--mist)}
+.check:last-child{border-right:0}
+.check .k{font-family:var(--jp);font-size:1.6rem;color:var(--slate);line-height:1}
+.check h3{font-stretch:90%;font-size:1.15rem;margin:10px 0 6px}
+.check p{margin:0;color:#3A5262;font-size:.95rem}
+
+/* Sample issue */
+.issue{background:var(--paper);border:1px solid var(--mist);box-shadow:0 18px 40px -24px rgba(19,35,46,.35)}
+.issue-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 22px;border-bottom:1px solid var(--mist);font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.listing{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:24px 22px}
+.plan{aspect-ratio:4/3;max-width:100%;background:
+  repeating-linear-gradient(0deg,transparent 0 23px,#E3EAEE 23px 24px),
+  repeating-linear-gradient(90deg,transparent 0 23px,#E3EAEE 23px 24px),#F8FAFB;border:1px solid var(--mist);position:relative}
+.plan svg{position:absolute;inset:10%;width:80%;height:80%}
+.listing h3{font-stretch:85%;font-size:1.35rem;margin:0 0 4px}
+.listing .loc{font-family:var(--jp);color:var(--muted);margin:0 0 14px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px 18px;margin:0 0 16px}
+.facts div{border-top:1px solid var(--mist);padding-top:6px}
+.facts dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}
+.flag{display:inline-block;font-family:var(--mono);font-size:.72rem;padding:2px 8px;border:1px solid currentColor;margin-right:6px}
+.flag.warn{color:var(--lantern)} .flag.good{color:var(--cedar)}
+.ask{background:#F3F6F7;padding:14px 16px;font-size:.95rem}
+.ask b{display:block;margin-bottom:4px}
+.ask ul{margin:0;padding-left:18px}
+.disclaim{font-size:.8rem;color:var(--muted);padding:0 22px 18px}
+
+/* Regions */
+.regions{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.region{border-left:3px solid var(--slate);padding:4px 0 4px 14px}
+.region .jp{font-family:var(--jp);font-size:1.3rem}
+.region p{margin:2px 0 0;font-size:.9rem;color:#3A5262}
+
+/* Pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px}
+.tier{border:1.5px solid var(--ink);padding:24px;background:var(--paper)}
+.tier.now{background:var(--ink);color:var(--snow)}
+.tier .amt{font-stretch:65%;font-weight:800;font-size:3rem;line-height:1}
+.tier ul{padding-left:18px;margin:14px 0 0}
+.tier.now .amt{color:#9CC3DD}
+
+details{border-top:1px solid var(--mist);padding:16px 0;max-width:760px}
+summary{cursor:pointer;font-weight:700;font-stretch:90%;font-size:1.05rem}
+details p{margin:8px 0 0;color:#3A5262}
+.cta{background:var(--ink);color:var(--snow)}
+.cta h2{color:var(--snow)}
+.cta .signup input{border-color:var(--snow)}
+.cta .signup button{background:#9CC3DD;color:var(--ink)}
+.cta .fine{color:#9FB4C2}
+footer{padding-block:28px 40px;font-size:.82rem;color:var(--muted)}
+
+@media (max-width:820px){
+  .hero-inner{grid-template-columns:1fr;padding-block:56px 110px}
+  .gauge{justify-self:start}
+  .checks{grid-template-columns:1fr}.check{border-right:0;border-bottom:1px solid var(--mist)}
+  .listing{grid-template-columns:1fr}
+  .regions{grid-template-columns:1fr 1fr}
+  .tiers{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){#snow{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <svg class="ridge" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 210 L180 120 L300 170 L470 60 L620 150 L760 95 L930 175 L1090 80 L1250 160 L1440 110 L1440 300 L0 300Z" fill="#C9D6DE"/>
+    <path d="M0 250 L220 175 L380 220 L560 150 L720 215 L900 160 L1080 230 L1260 175 L1440 210 L1440 300 L0 300Z" fill="#E6EDF1"/>
+    <path d="M0 300 L0 268 Q360 240 720 262 T1440 255 L1440 300Z" fill="#F3F6F7"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Early access · Weekly from Japan</div>
+      <h1>A ski cabin in Japan <em>for less than a used car.</em></h1>
+      <p class="lead">Cheap houses within 30 minutes of a ski lift. Checked for snow, winter roads and hazards. Every week.</p>
+      <form class="signup" id="f1" onsubmit="return signup(this)">
+        <input id="email1" type="email" required placeholder="you@example.com" aria-label="Email address">
+        <button type="submit">Get the first issue</button>
+      </form>
+      <p class="fine">Free while we launch. One email a week. Unsubscribe anytime.</p>
+      <p class="fine">Privacy: we only use your email to send this newsletter. We never sell or share it. Unsubscribe anytime, or reply to any email to have your address deleted.</p>
+    </div>
+    <aside class="gauge" aria-label="Example snow figure">
+      <div class="lbl">Max snow depth · example town</div>
+      <div class="jp">最深積雪</div>
+      <div class="depth">231<small> cm</small></div>
+      <div class="bar"><i></i></div>
+      <p>2.3 m on the roof. We check if the house can take it.</p>
+    </aside>
+  </div>
+</header>
+
+<main>
+<section><div class="wrap">
+  <h2>We check the winter, not just the price.</h2>
+  <div class="checks">
+    <div class="check"><div class="k">雪</div><h3>Snow load</h3><p>Snow depth and roof type.</p></div>
+    <div class="check"><div class="k">道</div><h3>Winter access</h3><p>Drive time to lifts. Who plows the road.</p></div>
+    <div class="check"><div class="k">災</div><h3>Hazard and rules</h3><p>Landslide, flood and rebuild rules.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>What one pick looks like</h2>
+  <article class="issue">
+    <div class="issue-head"><span>SNOW AKIYA · ISSUE 001 · EXAMPLE</span><span>¥1 ≈ $0.0067</span></div>
+    <div class="listing">
+      <div class="plan" aria-hidden="true">
+        <svg viewBox="0 0 100 80"><rect x="6" y="8" width="88" height="64" fill="none" stroke="#13232E" stroke-width="1.6"/><line x1="52" y1="8" x2="52" y2="48" stroke="#13232E" stroke-width="1"/><line x1="6" y1="48" x2="94" y2="48" stroke="#13232E" stroke-width="1"/><line x1="30" y1="48" x2="30" y2="72" stroke="#13232E" stroke-width="1"/><text x="22" y="30" font-size="6" fill="#3E6D8E" font-family="monospace">和室 6</text><text x="64" y="30" font-size="6" fill="#3E6D8E" font-family="monospace">LDK 12</text><text x="11" y="62" font-size="5" fill="#3E6D8E" font-family="monospace">玄関</text><text x="50" y="62" font-size="6" fill="#3E6D8E" font-family="monospace">洋室 8</text></svg>
+      </div>
+      <div>
+        <h3>2-bedroom wooden house · ¥4,800,000 <span style="color:var(--muted);font-weight:500">(≈ $32,000)</span></h3>
+        <p class="loc">Nagano Prefecture · 長野県北部</p>
+        <dl class="facts">
+          <div><dt>Nearest lifts</dt><dd>18 min · 25 min</dd></div>
+          <div><dt>Max snow depth</dt><dd>2.1 m</dd></div>
+          <div><dt>Built</dt><dd>1984 · 92 m²</dd></div>
+          <div><dt>Land</dt><dd>310 m² · owned</dd></div>
+        </dl>
+        <p><span class="flag good">Outside flood zone</span><span class="flag warn">Landslide caution zone</span><span class="flag good">Built after the 1981 quake code</span></p>
+        <div class="ask"><b>Ask the seller before viewing</b>
+          <ul><li>Is the access road plowed by the town in winter?</li><li>When was the roof last replaced, and is it metal?</li><li>Septic tank or town sewer? Well or town water?</li></ul>
+        </div>
+      </div>
+    </div>
+    <p class="disclaim">Every pick links to the original public listing. We're a newsletter, not a broker.</p>
+  </article>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>Where we look</h2>
+  <div class="strip">
+    <figure class="photo"><img src="img/snow-village.jpg" alt="Snow-covered village of traditional houses in Gifu" loading="lazy"><figcaption>Shirakawa, Gifu</figcaption></figure>
+    <figure class="photo"><img src="img/snow-gokayama.jpg" alt="Houses under deep snow below mountains in Toyama" loading="lazy"><figcaption>Gokayama, Toyama</figcaption></figure>
+  </div>
+  <div class="regions">
+    <div class="region"><div class="jp">北海道</div><b>Hokkaido</b></div>
+    <div class="region"><div class="jp">東北</div><b>Tohoku</b></div>
+    <div class="region"><div class="jp">新潟</div><b>Niigata</b></div>
+    <div class="region"><div class="jp">長野</div><b>Nagano</b></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>Pricing</h2>
+  <div class="tiers">
+    <div class="tier now"><div class="eyebrow" style="color:#9FB4C2">Now</div><div class="amt">Free</div><ul><li>Early issues</li></ul></div>
+    <div class="tier"><div class="eyebrow">Planned</div><div class="amt">$9<span style="font-size:1.1rem;font-stretch:100%">/month</span></div><ul><li>Weekly picks</li><li>Full archive</li></ul></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>Questions</h2>
+  <details><summary>Can foreigners buy houses in Japan?</summary><p>Yes. Japan places very few limits on foreign buyers (a few areas near sensitive facilities need a notification). Owning a house doesn't come with a visa.</p></details>
+  <details><summary>Are you a real estate agent?</summary><p>No. We're a newsletter. We don't broker deals or take commissions.</p></details>
+    </div></section>
+
+<section class="cta"><div class="wrap">
+  <h2>Get the first issue.</h2>
+  <form class="signup" id="f2" onsubmit="return signup(this)">
+    <input id="email2" type="email" required placeholder="you@example.com" aria-label="Email address">
+    <button type="submit">Join early access</button>
+  </form>
+  <p class="fine">No spam. Unsubscribe anytime.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">Snow Akiya is an independent research newsletter, not a real estate brokerage. Information may be incomplete or out of date. Confirm every detail with the seller and a licensed agent.<br>Photos: Hyungman Jeon, Zhi Xuan Hew / Unsplash. Photos show the region, not houses for sale.</div></footer>
+
+<script>
+// 先行登録：Googleフォーム「先行登録（4サービス共通）」に送信する
+const FORM_URL='https://docs.google.com/forms/d/1Etvq35bMj2UZWpLjMc_KZ6kxbBUc15xqKhJJnWf5DlU/formResponse';
+const SOURCE='snow-akiya';
+function signup(f){
+  const email=f.querySelector('input[type=email]').value.trim();
+  const body=new URLSearchParams({'entry.2106556167':email,'entry.1826001213':SOURCE+(location.search?' '+location.search:'')});
+  fetch(FORM_URL,{method:'POST',mode:'no-cors',body}).catch(()=>{});
+  f.outerHTML='<p class="ok">You’re on the list. The first issue is on its way soon.</p>';
+  return false;
+}
+// 降雪アニメーション
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const c=document.getElementById('snow'),x=c.getContext('2d');let w,h,flakes=[];
+  function size(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;
+    flakes=Array.from({length:Math.round(w*h/26000)},()=>({x:Math.random()*w,y:Math.random()*h,r:(Math.random()*1.8+.6)*devicePixelRatio,s:Math.random()*.6+.3,d:Math.random()*Math.PI*2}))}
+  function tick(){x.clearRect(0,0,w,h);x.fillStyle='rgba(255,255,255,.9)';
+    for(const f of flakes){f.y+=f.s*devicePixelRatio;f.d+=.01;f.x+=Math.sin(f.d)*.3*devicePixelRatio;if(f.y>h){f.y=-5;f.x=Math.random()*w}
+      x.beginPath();x.arc(f.x,f.y,f.r,0,7);x.fill()}
+    requestAnimationFrame(tick)}
+  size();addEventListener('resize',size);tick();
+})();
+</script>
+</body>
+</html>

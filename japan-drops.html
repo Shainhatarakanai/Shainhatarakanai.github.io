@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Japan Drops</title>
+<meta name="description" content="One weekly calendar of Japan-only releases, pre-order openings and lottery deadlines, converted to your time zone.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Figtree:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Single light theme by design: printed shop flyer, risograph colors */
+:root{
+  color-scheme: light;
+  --paper:#FFFCF4; --ink:#1B1B3A; --pink:#FF4F8B; --yellow:#FFE45C; --blue:#3A6BFF; --muted:#5B5B78; --rule:#1B1B3A;
+  --display:"Dela Gothic One","Arial Black",sans-serif; --body:"Figtree",system-ui,sans-serif; --mono:"Space Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+.ticker{background:var(--ink);color:var(--yellow);font-family:var(--mono);font-size:.8rem;white-space:nowrap;overflow:hidden}
+.ticker div{display:inline-block;padding:8px 0;animation:tick 40s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.hero{padding-block:64px 56px;border-bottom:3px solid var(--rule)}
+.hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+.tag{display:inline-block;font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--yellow);padding:3px 8px;border:2px solid var(--ink)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.5rem,6.6vw,5rem);line-height:1.02;margin:18px 0 18px;text-wrap:balance}
+h1 .hl{background:linear-gradient(transparent 58%,var(--pink) 58%);padding:0 .08em}
+.lead{max-width:32em;margin:0 0 26px;font-size:1.1rem}
+.signup{display:flex;gap:8px;flex-wrap:wrap;max-width:520px}
+.signup input{flex:1 1 230px;padding:14px 16px;font:inherit;border:2.5px solid var(--ink);border-radius:0;background:#fff;color:var(--ink)}
+.signup button{padding:14px 22px;font:inherit;font-weight:800;border:2.5px solid var(--ink);background:var(--pink);color:#fff;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+.signup button:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.fine{font-size:.82rem;color:var(--muted);margin-top:12px}
+.ok{font-weight:800;color:var(--pink)}
+
+/* Week calendar card */
+.cal{background:#fff;border:2.5px solid var(--ink);box-shadow:8px 8px 0 var(--blue)}
+.cal-hd{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;border-bottom:2.5px solid var(--ink);font-family:var(--mono);font-size:.78rem}
+.cal-hd b{font-family:var(--display);font-weight:400;font-size:1.05rem}
+.ev{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-bottom:1px dashed #B9B6C9}
+.ev:last-child{border-bottom:0}
+.day{text-align:center;border:2px solid var(--ink);line-height:1.1;padding:4px 0}
+.day .d{font-family:var(--display);font-size:1.4rem}
+.day .w{font-family:var(--mono);font-size:.68rem;text-transform:uppercase}
+.ev h3{margin:0;font-size:1rem;font-weight:800}
+.ev p{margin:2px 0 0;font-size:.85rem;color:var(--muted)}
+.ev time{font-family:var(--mono);font-size:.78rem;font-weight:700}
+.kind{font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;padding:2px 6px;border:1.5px solid var(--ink);white-space:nowrap}
+.kind.lot{background:var(--yellow)} .kind.pre{background:#CFE0FF} .kind.rel{background:#FFD3E2}
+.cal-ft{padding:8px 14px;font-family:var(--mono);font-size:.72rem;color:var(--muted);border-top:2.5px solid var(--ink)}
+
+section{padding-block:72px;border-bottom:3px solid var(--rule)}
+.photo{margin:0;position:relative;overflow:hidden}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;max-width:100%}
+.photo figcaption{position:absolute;left:12px;bottom:10px;font-size:.75rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.pics{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:3px solid var(--rule)}
+.pics .photo{aspect-ratio:4/3}
+.pics .photo:first-child{border-right:3px solid var(--rule)}
+.pics figcaption{font-family:var(--mono);background:var(--ink);color:var(--yellow);text-shadow:none;padding:2px 8px;left:0;bottom:0}
+@media (max-width:860px){.pics{grid-template-columns:1fr}.pics .photo:first-child{border-right:0;border-bottom:3px solid var(--rule)}}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.08;margin:0 0 12px;text-wrap:balance}
+.intro{max-width:40em;margin:0 0 32px;color:#33334F}
+
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why div{border:2.5px solid var(--ink);padding:20px;background:#fff}
+.why .big{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--pink)}
+.why h3{margin:8px 0 6px;font-size:1.1rem;font-weight:800}
+.why p{margin:0;font-size:.95rem;color:#33334F}
+
+.cats{display:flex;flex-wrap:wrap;gap:10px}
+.cats span{font-weight:800;border:2.5px solid var(--ink);padding:8px 14px;background:#fff}
+.cats span:nth-child(3n+1){background:var(--yellow)} .cats span:nth-child(3n+2){background:#CFE0FF}
+
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:780px}
+.tier{border:2.5px solid var(--ink);padding:24px;background:#fff}
+.tier.now{background:var(--yellow);box-shadow:6px 6px 0 var(--ink)}
+.tier .amt{font-family:var(--display);font-size:3rem;line-height:1}
+.tier ul{padding-left:18px;margin:12px 0 0}
+details{border-top:2px solid var(--ink);padding:16px 0;max-width:780px}
+summary{cursor:pointer;font-weight:800}
+details p{margin:8px 0 0;color:#33334F}
+footer{padding-block:28px 44px;font-size:.82rem;color:var(--muted)}
+
+@media (max-width:860px){
+  .hero-inner{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.ticker div{animation:none}}
+</style>
+</head>
+<body>
+<div class="ticker" aria-hidden="true"><div>LOTTERY CLOSES SUN 23:59 JST · PRE-ORDERS OPEN WED 11:00 JST · RE-RELEASE FRI · JAPAN-ONLY · LOTTERY CLOSES SUN 23:59 JST · PRE-ORDERS OPEN WED 11:00 JST · RE-RELEASE FRI · JAPAN-ONLY · </div></div>
+
+<header class="hero"><div class="wrap hero-inner">
+  <div>
+    <span class="tag">Early access · Weekly</span>
+    <h1>Never miss a <span class="hl">Japan-only</span> drop again.</h1>
+    <p class="lead">Japan-only releases, pre-orders and lottery deadlines. One calendar every Monday, in your time zone.</p>
+    <form class="signup" onsubmit="return signup(this)">
+      <input id="email1" type="email" required placeholder="you@example.com" aria-label="Email address">
+      <button type="submit">Send me the calendar</button>
+    </form>
+    <p class="fine">Free while we launch. One email a week. Unsubscribe anytime.</p>
+    <p class="fine">Privacy: we only use your email to send this newsletter. We never sell or share it. Unsubscribe anytime, or reply to any email to have your address deleted.</p>
+  </div>
+
+  <div class="cal" aria-label="Example weekly calendar">
+    <div class="cal-hd"><b>This week</b><span>Times shown in <span id="tz">your time</span></span></div>
+    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-04T11:00:00+09:00" data-part="d">4</div><div class="w" data-jst="2026-11-04T11:00:00+09:00" data-part="w">Wed</div></div><div><h3>1/7 scale figure, shop-exclusive version</h3><p>Pre-orders open · <time data-jst="2026-11-04T11:00:00+09:00">11:00 JST</time></p></div><span class="kind pre">Pre-order</span></div>
+    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-06T10:00:00+09:00" data-part="d">6</div><div class="w" data-jst="2026-11-06T10:00:00+09:00" data-part="w">Fri</div></div><div><h3>Master Grade kit, event-limited color</h3><p>Online re-release · <time data-jst="2026-11-06T10:00:00+09:00">10:00 JST</time></p></div><span class="kind rel">Release</span></div>
+    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-08T23:59:00+09:00" data-part="d">8</div><div class="w" data-jst="2026-11-08T23:59:00+09:00" data-part="w">Sun</div></div><div><h3>Card game booster box, Japanese edition</h3><p>Lottery entry closes · <time data-jst="2026-11-08T23:59:00+09:00">23:59 JST</time></p></div><span class="kind lot">Lottery</span></div>
+    <div class="cal-ft">Example format. Live issues name the exact items and shops.</div>
+  </div>
+</div></header>
+<div class="pics">
+  <figure class="photo"><img src="img/drops-akiba.jpg" alt="Shoppers outside a figure shop with a neon sign in Akihabara"><figcaption>AKIHABARA, TOKYO</figcaption></figure>
+  <figure class="photo"><img src="img/drops-gacha.jpg" alt="An aisle lined with capsule toy machines"><figcaption>CAPSULE TOY AISLE</figcaption></figure>
+</div>
+
+<main>
+<section><div class="wrap">
+  <h2>Easy to miss</h2>
+  <div class="why">
+    <div><div class="big">抽選</div><h3>Lotteries, not checkouts</h3><p>Miss the window, miss the item.</p></div>
+    <div><div class="big">+9h</div><h3>Japan time</h3><p>We convert every deadline for you.</p></div>
+    <div><div class="big">数時間</div><h3>Gone in hours</h3><p>We flag the fast sellers.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What we track</h2>
+  <div class="cats"><span>Scale figures</span><span>Gunpla and model kits</span><span>Trading card games</span><span>Prize figures</span><span>Character goods</span><span>Event-limited items</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Pricing</h2>
+  <div class="tiers">
+    <div class="tier now"><span class="tag" style="background:#fff">Now</span><div class="amt" style="margin-top:10px">Free</div><ul><li>Weekly calendar</li></ul></div>
+    <div class="tier"><span class="tag" style="background:#CFE0FF">Planned</span><div class="amt" style="margin-top:10px">$5<span style="font-family:var(--body);font-size:1.1rem;font-weight:800">/mo</span></div><ul><li>Weekly calendar</li><li>Instant alerts</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Questions</h2>
+  <details><summary>Do you sell or buy items for me?</summary><p>No. Information only.</p></details>
+  <details><summary>Can I buy these from outside Japan?</summary><p>Each entry says if the shop ships overseas.</p></details>
+  </div></section>
+</main>
+
+<footer><div class="wrap">Japan Drops is an independent release calendar, not affiliated with any brand, maker or shop. Dates can change; always check the official page.<br>Photos: Suzi Kim, C M / Unsplash.</div></footer>
+
+<script>
+// 先行登録：Googleフォーム「先行登録（4サービス共通）」に送信する
+const FORM_URL='https://docs.google.com/forms/d/1Etvq35bMj2UZWpLjMc_KZ6kxbBUc15xqKhJJnWf5DlU/formResponse';
+const SOURCE='japan-drops';
+function signup(f){
+  const email=f.querySelector('input[type=email]').value.trim();
+  const body=new URLSearchParams({'entry.2106556167':email,'entry.1826001213':SOURCE+(location.search?' '+location.search:'')});
+  fetch(FORM_URL,{method:'POST',mode:'no-cors',body}).catch(()=>{});
+  f.outerHTML='<p class="ok">You’re in. Your first calendar arrives on a Monday.</p>';
+  return false;
+}
+// 日本時間を閲覧者のタイムゾーンに変換して表示
+(function(){
+  try{
+    const tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if(tz==='Asia/Tokyo') return;
+    document.getElementById('tz').textContent=tz.split('/').pop().replace(/_/g,' ')+' time';
+    document.querySelectorAll('[data-jst]').forEach(el=>{
+      const d=new Date(el.dataset.jst);
+      if(el.dataset.part==='d') el.textContent=d.getDate();
+      else if(el.dataset.part==='w') el.textContent=d.toLocaleDateString('en-US',{weekday:'short'});
+      else el.textContent=d.toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit'})+' your time';
+    });
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

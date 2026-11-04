@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JDM 25 Club</title>
+<meta name="description" content="A monthly briefing from Japan on which JDM cars just crossed the US 25-year import line, and what they cost in Japan right now.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Single dark theme by design: night garage / highway at 2am */
+:root{
+  color-scheme: dark;
+  --asphalt:#111315; --panel:#1A1D20; --line:#2C3035; --chalk:#ECE9E2; --dim:#9AA0A6;
+  --plate:#F2C230; --tail:#E0402A; --plategreen:#1E5C3A;
+  --display:"Big Shoulders Display",Impact,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--asphalt);color:var(--chalk);font-family:var(--body);line-height:1.65;font-size:17px}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--plate);outline-offset:2px}
+.mono{font-family:var(--mono)}
+
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:
+   radial-gradient(1200px 400px at 80% 110%,rgba(224,64,42,.18),transparent 60%),
+   repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.025) 79px 80px),var(--asphalt)}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:80px 72px}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--plate)}
+h1{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(2.8rem,7.2vw,5.6rem);line-height:.9;margin:14px 0 20px;letter-spacing:.005em;text-wrap:balance}
+h1 span{color:var(--plate)}
+.lead{color:#C9CCD0;max-width:33em;margin:0 0 28px;font-size:1.08rem}
+.signup{display:flex;gap:8px;flex-wrap:wrap;max-width:520px}
+.signup input{flex:1 1 230px;padding:14px 16px;font:inherit;background:var(--panel);color:var(--chalk);border:1px solid #3A3F45;border-radius:3px}
+.signup button{padding:14px 22px;font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase;border:0;border-radius:3px;background:var(--plate);color:#1B1600;cursor:pointer}
+.signup button:hover{background:#FFD24A}
+.fine{font-size:.82rem;color:var(--dim);margin-top:10px}
+.ok{font-weight:700;color:var(--plate)}
+
+/* Odometer: years */
+.odo{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px 22px 18px}
+.odo .lbl{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.digits{display:flex;align-items:center;gap:12px;margin:12px 0 6px;flex-wrap:wrap}
+.yr{display:flex;gap:4px}
+.yr b{display:grid;place-items:center;width:46px;height:64px;background:#0A0B0C;border:1px solid #33383E;border-radius:3px;font-family:var(--display);font-weight:800;font-size:2.6rem;font-variant-numeric:tabular-nums}
+.yr.to b{color:var(--plate)}
+.arrow{font-family:var(--display);font-size:2rem;color:var(--tail)}
+.odo p{margin:8px 0 0;color:#C9CCD0;font-size:.92rem}
+.plate{display:inline-flex;align-items:center;gap:10px;margin-top:16px;background:var(--plate);color:#1C1C1C;border:3px solid #1C1C1C;border-radius:6px;padding:6px 14px;font-family:var(--mono);font-weight:600;box-shadow:0 0 0 2px var(--plate)}
+.plate .area{font-size:.8rem;line-height:1.1}
+.plate .num{font-family:var(--display);font-weight:900;font-size:1.9rem;letter-spacing:.04em}
+
+section{padding-block:72px;border-bottom:1px solid var(--line)}
+.photo{margin:0;position:relative;overflow:hidden}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;max-width:100%}
+.photo figcaption{position:absolute;left:12px;bottom:10px;font-size:.75rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.band{height:clamp(240px,42vw,460px);border-bottom:1px solid var(--line)}
+.band figcaption{left:20px;bottom:16px;font-family:var(--mono)}
+.band img{object-position:center 80%}
+.sample-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:stretch}
+.sample-grid .photo{border-radius:4px;min-height:320px}
+@media (max-width:860px){.sample-grid{grid-template-columns:1fr}.sample-grid .photo{min-height:0;aspect-ratio:3/4}}
+h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2rem,4.4vw,3.2rem);line-height:.95;margin:0 0 14px;letter-spacing:.01em}
+.intro{max-width:40em;color:#C9CCD0;margin:0 0 32px}
+
+/* Class of 2027 table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.95rem}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);background:var(--panel)}
+td.code{font-family:var(--mono);color:var(--plate)}
+td.yr2{font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-family:var(--mono);font-size:.72rem;padding:2px 8px;border-radius:99px;border:1px solid currentColor}
+.pill.soon{color:var(--plate)} .pill.now{color:#7BD88F}
+.tblnote{font-size:.82rem;color:var(--dim);margin-top:10px}
+
+/* Monthly contents */
+.items{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.item{background:var(--asphalt);padding:24px}
+.item .n{font-family:var(--display);font-weight:900;font-size:2.4rem;color:var(--tail);line-height:1}
+.item h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.5rem;margin:8px 0 6px;letter-spacing:.02em}
+.item p{margin:0;color:#B9BDC2;font-size:.95rem}
+
+/* Sample */
+.memo{background:#F4F1EA;color:#1C1C1C;border-radius:4px;padding:28px;max-width:760px;font-size:.98rem;box-shadow:0 30px 60px -30px #000}
+.memo .hd{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:#6B6458;border-bottom:1px dashed #BDB5A6;padding-bottom:10px;margin-bottom:16px}
+.memo h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1.7rem;margin:0 0 4px}
+.memo .row{display:grid;grid-template-columns:140px 1fr;gap:4px 16px;margin:12px 0}
+.memo .row dt{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#6B6458;padding-top:3px}
+.memo .row dd{margin:0}
+.memo ul{margin:6px 0 0;padding-left:18px}
+
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px}
+.tier{border:1px solid var(--line);border-radius:6px;padding:24px;background:var(--panel)}
+.tier.now{border-color:var(--plate)}
+.tier .amt{font-family:var(--display);font-weight:900;font-size:3.4rem;line-height:1}
+.tier ul{padding-left:18px;margin:12px 0 0;color:#C9CCD0}
+details{border-top:1px solid var(--line);padding:16px 0;max-width:780px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:8px 0 0;color:#C9CCD0}
+footer{padding-block:28px 44px;font-size:.82rem;color:var(--dim)}
+
+@media (max-width:860px){
+  .hero-inner{grid-template-columns:1fr;padding-block:56px}
+  .items{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+  .memo .row{grid-template-columns:1fr}
+  .yr b{width:38px;height:54px;font-size:2.1rem}
+}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap hero-inner">
+  <div>
+    <div class="eyebrow">Monthly from Japan · Early access</div>
+    <h1>Know which JDM legends turn <span>25</span> before everyone else.</h1>
+    <p class="lead">Which JDM cars just became US-legal, and what they cost in Japan. Monthly.</p>
+    <form class="signup" onsubmit="return signup(this)">
+      <input id="email1" type="email" required placeholder="you@example.com" aria-label="Email address">
+      <button type="submit">Join the waitlist</button>
+    </form>
+    <p class="fine">Free while we launch. Unsubscribe anytime.</p>
+    <p class="fine">Privacy: we only use your email to send this newsletter. We never sell or share it. Unsubscribe anytime, or reply to any email to have your address deleted.</p>
+  </div>
+  <div class="odo" aria-label="Model year crossing the 25-year line">
+    <div class="lbl">Built in · Eligible from</div>
+    <div class="digits">
+      <div class="yr"><b>2</b><b>0</b><b>0</b><b>2</b></div>
+      <div class="arrow">→</div>
+      <div class="yr to" id="toYear"><b>2</b><b>0</b><b>2</b><b>7</b></div>
+    </div>
+    <p>The final year of several legends.</p>
+    <div class="plate"><span class="area">品川<br>300</span><span class="num">25-02</span></div>
+  </div>
+</div></header>
+<figure class="photo band"><img src="img/jdm-fuji.jpg" alt="Two blue Nissan Skyline GT-R cars parked by a lake with Mount Fuji behind"><figcaption>R34 GT-Rs at Lake Shoji, Yamanashi</figcaption></figure>
+
+<main>
+<section><div class="wrap">
+  <h2>The class of 2027</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Car</th><th>Chassis</th><th>Production</th><th>First cars turn 25</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Nissan Skyline GT-R (R34) V-spec II Nür</td><td class="code">BNR34</td><td class="yr2">2002</td><td class="yr2">2027</td><td><span class="pill soon">Coming</span></td></tr>
+      <tr><td>Mazda RX-7 Spirit R</td><td class="code">FD3S</td><td class="yr2">2002</td><td class="yr2">2027</td><td><span class="pill soon">Coming</span></td></tr>
+      <tr><td>Toyota Supra (final run)</td><td class="code">JZA80</td><td class="yr2">2002</td><td class="yr2">2027</td><td><span class="pill soon">Coming</span></td></tr>
+      <tr><td>Honda NSX-R</td><td class="code">NA2</td><td class="yr2">2002–2005</td><td class="yr2">2027</td><td><span class="pill soon">Coming</span></td></tr>
+      <tr><td>Mitsubishi Lancer Evolution VII</td><td class="code">CT9A</td><td class="yr2">2001–2003</td><td class="yr2">2026</td><td><span class="pill now">Eligible by month</span></td></tr>
+      <tr><td>Honda Integra Type R</td><td class="code">DC5</td><td class="yr2">2001–2006</td><td class="yr2">2026</td><td><span class="pill now">Eligible by month</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="tblnote">Counted from each car's month of manufacture. Confirm with a licensed importer.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What's in each issue</h2>
+  <div class="items">
+    <div class="item"><div class="n">01</div><h3>The calendar</h3><p>What turns 25 in the next 3 months.</p></div>
+    <div class="item"><div class="n">02</div><h3>Japan price notes</h3><p>Japan asking prices, in yen and dollars.</p></div>
+    <div class="item"><div class="n">03</div><h3>Buyer's checklist</h3><p>What to check before you pay.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>A page from an issue</h2>
+  <div class="sample-grid">
+  <article class="memo">
+    <div class="hd"><span>JDM 25 CLUB · ISSUE 001 · EXAMPLE</span><span>Written in Tokyo</span></div>
+    <h3>RX-7 Spirit R (FD3S)</h3>
+        <dl class="row">
+      <dt>Japan listings</dt><dd>Count and asking range, this month, by condition grade</dd>
+      <dt>Watch for</dt><dd>Apex seal compression records, rust under the rear hatch, aftermarket ECU history</dd>
+      <dt>Paperwork</dt><dd>Export certificate (輸出抹消仮登録証明書) and the manufacture date plate</dd>
+    </dl>
+    <b>Before you pay anyone</b>
+    <ul><li>Ask for a compression test result, not just "runs great".</li><li>Get the auction sheet, and have it translated.</li></ul>
+  </article>
+  <figure class="photo"><img src="img/jdm-r34.jpg" alt="Blue Nissan Skyline R34 at a car meet in Japan" loading="lazy"></figure>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Pricing</h2>
+  <div class="tiers">
+    <div class="tier now"><div class="eyebrow">Now</div><div class="amt">Free</div><ul><li>Early issues</li></ul></div>
+    <div class="tier"><div class="eyebrow" style="color:var(--dim)">Planned</div><div class="amt">$7<span style="font-size:1.2rem">/mo</span></div><ul><li>Monthly issue</li><li>Full archive</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Questions</h2>
+  <details><summary>Do you sell or import cars?</summary><p>No. We're a newsletter only.</p></details>
+  <details><summary>Is this only for the US?</summary><p>US 25-year rule for now.</p></details>
+  </div></section>
+</main>
+
+<footer><div class="wrap">JDM 25 Club is an independent newsletter. Not legal, import or investment advice. Model names are trademarks of their owners; we're not affiliated with any manufacturer.<br>Photos: melih karaahmet, Andrew Akabane / Unsplash.</div></footer>
+
+<script>
+// 先行登録：Googleフォーム「先行登録（4サービス共通）」に送信する
+const FORM_URL='https://docs.google.com/forms/d/1Etvq35bMj2UZWpLjMc_KZ6kxbBUc15xqKhJJnWf5DlU/formResponse';
+const SOURCE='jdm-25';
+function signup(f){
+  const email=f.querySelector('input[type=email]').value.trim();
+  const body=new URLSearchParams({'entry.2106556167':email,'entry.1826001213':SOURCE+(location.search?' '+location.search:'')});
+  fetch(FORM_URL,{method:'POST',mode:'no-cors',body}).catch(()=>{});
+  f.outerHTML='<p class="ok">You’re on the list. Issue 001 is coming.</p>';
+  return false;
+}
+</script>
+</body>
+</html>

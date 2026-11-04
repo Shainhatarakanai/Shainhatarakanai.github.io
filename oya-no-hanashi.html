@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>おやのはなし</title>
+<meta name="description" content="帰省のついでに、親の話をスマホで録音。AIが文章にまとめ、写真入りの本のデータにしてお届けします。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@700&display=swap" rel="stylesheet">
+<style>
+/* 単一のライトテーマ：夜の実家の居間。藍の夜と、電灯の黄色 */
+:root{
+  color-scheme: light;
+  --wall:#F4F2EC; --page:#FFFEFA; --ink:#1F2433; --night:#1E2A44; --lamp:#E9B949; --lamp-soft:#FBF1D4; --sub:#5F6472; --line:#DEDAD0;
+  --hand:"Klee One","Yu Mincho",serif; --body:"Zen Kaku Gothic New","Yu Gothic UI","Hiragino Sans",sans-serif; --mincho:"Zen Old Mincho","Yu Mincho",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wall);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.9}
+.wrap{max-width:1060px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--lamp);outline-offset:2px}
+.photo{margin:0;position:relative;overflow:hidden}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;max-width:100%}
+.photo figcaption{position:absolute;left:12px;bottom:10px;font-size:.75rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+
+/* ヒーロー：夜の藍 */
+.hero{background:var(--night);color:#F3EFE4;position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding-block:64px 64px}
+.season{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--lamp);border:1px solid rgba(233,185,73,.5);padding:3px 12px;border-radius:99px}
+h1{font-family:var(--mincho);font-weight:700;font-size:clamp(2rem,4.8vw,3.3rem);line-height:1.45;margin:16px 0 18px;letter-spacing:.03em;text-wrap:balance}
+h1 .lamp{color:var(--lamp)}
+.lead{margin:0 0 26px;color:#D5D8E2;max-width:30em}
+.signup{display:flex;gap:8px;flex-wrap:wrap;max-width:500px}
+.signup input{flex:1 1 220px;padding:13px 14px;font:inherit;border:0;border-radius:6px;background:#fff;color:var(--ink)}
+.signup button{padding:13px 22px;font:inherit;font-weight:700;border:0;border-radius:6px;background:var(--lamp);color:#2A2108;cursor:pointer}
+.signup button:hover{background:#F2C960}
+.fine{font-size:.8rem;color:#A9AEBD;margin-top:10px;max-width:34em}
+.ok{font-weight:700;color:var(--lamp)}
+.hero .photo{border-radius:10px;aspect-ratio:4/5;box-shadow:0 30px 60px -30px #000}
+
+section{padding-block:72px}
+h2{font-family:var(--mincho);font-weight:700;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.5;margin:0 0 28px;text-wrap:balance}
+
+/* 見本の見開き */
+.spread{display:grid;grid-template-columns:1fr 1fr;background:var(--page);border:1px solid var(--line);border-radius:4px;box-shadow:0 24px 50px -30px rgba(31,36,51,.45);max-width:860px;margin-inline:auto;position:relative}
+.spread::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(180deg,transparent,#CFCAB9,transparent)}
+.pg{padding:34px 36px 30px}
+.pg .ch{font-family:var(--mincho);font-size:.85rem;color:var(--sub);letter-spacing:.2em}
+.pg h3{font-family:var(--mincho);font-size:1.35rem;margin:6px 0 14px}
+.pg p{font-family:var(--hand);font-size:1.02rem;line-height:2.05;margin:0 0 12px}
+.pg .photo{aspect-ratio:4/3;border-radius:2px;margin-bottom:10px}
+.pg .cap{font-size:.78rem;color:var(--sub);text-align:center}
+.pg .num{font-size:.75rem;color:var(--sub);text-align:center;margin-top:14px}
+.label{text-align:center;font-size:.8rem;color:var(--sub);margin-top:12px}
+
+/* 流れ（順番があるので番号を使う） */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{background:var(--page);border:1px solid var(--line);border-radius:10px;padding:20px}
+.step .n{font-family:var(--mincho);font-size:1.8rem;color:var(--lamp);line-height:1}
+.step h3{margin:8px 0 4px;font-size:1.02rem}
+.step p{margin:0;font-size:.9rem;color:var(--sub)}
+.when{margin-top:18px;font-size:.92rem;background:var(--lamp-soft);border-radius:8px;padding:12px 16px;display:inline-block}
+
+/* 質問カード */
+.qs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.q{background:var(--page);border:1px solid var(--line);border-radius:8px;padding:18px;font-family:var(--hand);font-size:1.05rem;line-height:1.7;position:relative}
+.q::before{content:"Q";font-family:var(--mincho);color:var(--lamp);font-size:1.3rem;margin-right:6px}
+.q small{display:block;font-family:var(--body);font-size:.75rem;color:var(--sub);margin-top:6px}
+
+.price{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;background:var(--page);border:1px solid var(--line);border-radius:12px;padding:28px;max-width:860px}
+.price .amt{font-family:var(--mincho);font-size:2.8rem;line-height:1.2}
+.price .amt small{font-size:1rem;font-family:var(--body)}
+.price .was{color:var(--sub);text-decoration:line-through;font-size:.95rem}
+.price ul{margin:0;padding-left:20px}
+.price .photo{border-radius:8px;aspect-ratio:4/3}
+.plan2{padding:10px 18px;font:inherit;font-weight:700;border:1.5px solid var(--night);border-radius:6px;background:#fff;color:var(--night);cursor:pointer}
+.plan2[disabled]{opacity:.6;cursor:default}
+
+details{border-top:1px solid var(--line);padding:14px 0;max-width:860px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:8px 0 0;color:var(--sub)}
+.cta{background:var(--night);color:#F3EFE4}
+.cta h2{color:#F3EFE4}
+footer{padding-block:24px 40px;font-size:.8rem;color:var(--sub)}
+
+@media (max-width:860px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero .photo{aspect-ratio:4/3}
+  .spread{grid-template-columns:1fr}.spread::after{display:none}
+  .flow{grid-template-columns:1fr 1fr}
+  .qs{grid-template-columns:1fr}
+  .price{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap hero-inner">
+  <div>
+    <span class="season">この年末年始の帰省に</span>
+    <h1>帰省のついでに、<br>親の話を<span class="lamp">一冊の本</span>に。</h1>
+    <p class="lead">スマホで親の話を録音して送るだけ。AIが文章にまとめ、写真入りの<b>本のデータ</b>にしてお届けします。スマホで読めて、そのまま印刷にも使えます。</p>
+    <form class="signup" onsubmit="return signup(this)">
+      <input id="email1" type="email" required placeholder="メールアドレス" aria-label="メールアドレス">
+      <button type="submit">先行案内を受け取る</button>
+    </form>
+    <p class="fine">先行登録の方には、特別価格と「録音のときの質問リスト」をお送りします。</p>
+    <p class="fine">個人情報の取り扱い：ご登録のメールアドレスは本サービスのご案内にのみ使用し、第三者に提供しません。配信メールへの返信で、いつでも削除を依頼できます。</p>
+  </div>
+  <figure class="photo"><img src="img/js-album.jpg" alt="古いアルバムを開く手元"></figure>
+</div></header>
+
+<main>
+<section><div class="wrap">
+  <h2>できあがる本の見本</h2>
+  <div class="spread">
+    <div class="pg">
+      <div class="ch">第三章</div>
+      <h3>はじめての給料</h3>
+      <p>昭和四十三年の春、町の工場に勤めはじめた。最初の給料は封筒に入った現金で、帰りに母へ羊羹を買った。</p>
+      <p>「あんなに喜んだ顔は、あとにも先にも見たことがない」と、今でも笑って話す。</p>
+      <div class="num">— 34 —</div>
+    </div>
+    <div class="pg">
+      <figure class="photo"><img src="img/js-hands.jpg" alt="アルバムの写真を指さす手" loading="lazy"></figure>
+      <div class="cap">お預かりした写真を、本文の近くに配置します</div>
+      <div class="num">— 35 —</div>
+    </div>
+  </div>
+  <p class="label">見本（架空の文章です）。実際の本は、録音されたご本人の言葉をもとに作ります。</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>録音から本が届くまで</h2>
+  <div class="flow">
+    <div class="step"><div class="n">一</div><h3>質問リストが届く</h3><p>話を引き出す質問を、章ごとにお送りします</p></div>
+    <div class="step"><div class="n">二</div><h3>帰省中に録音</h3><p>スマホで30分×2回。こたつで雑談のように</p></div>
+    <div class="step"><div class="n">三</div><h3>原稿を確認</h3><p>AIがまとめた原稿を、ご家族で確認・修正</p></div>
+    <div class="step"><div class="n">四</div><h3>本のデータが届く</h3><p>スマホで読めるPDFと、印刷用のPDFをお届け</p></div>
+  </div>
+  <p class="when">原稿を確定してから、約1週間でデータをお届け。紙の本が欲しい方は、印刷サービスに1冊から注文できます（注文方法をご案内します）。</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>たとえば、こんなことを聞きます</h2>
+  <div class="qs">
+    <div class="q">子どものころ、いちばん好きだった遊びは？<small>第一章　生まれた町</small></div>
+    <div class="q">はじめての仕事と、最初の給料の使いみちは？<small>第三章　働く</small></div>
+    <div class="q">結婚を決めたのは、どんな日でしたか？<small>第四章　家族</small></div>
+    <div class="q">いちばん大変だった時期を、どう乗り越えた？<small>第五章　山と谷</small></div>
+    <div class="q">孫に伝えておきたいことは？<small>第七章　これから</small></div>
+    <div class="q">もう一度行けるなら、どこへ行きたい？<small>第七章　これから</small></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>料金（予定）</h2>
+  <div class="price">
+    <div>
+      <div class="was">通常予定 9,800円</div>
+      <div class="amt">7,800<small>円（税込・先行登録価格）</small></div>
+      <ul><li>スマホで読めるPDF＋A5判の印刷用PDF</li><li>約60ページ・写真10枚まで</li><li>原稿の修正2回まで</li><li>紙の本は、印刷サービスに直接ご注文いただけます（印刷代は別）</li></ul>
+    </div>
+    <figure class="photo"><img src="img/js-kanazawa.jpg" alt="日傘をさして微笑む女性" loading="lazy"><figcaption>金沢にて</figcaption></figure>
+  </div>
+  <div class="price" style="margin-top:16px;grid-template-columns:1fr">
+    <div>
+      <div class="season" style="color:var(--night);border-color:var(--line)">もうひとつのプラン（検討中）</div>
+      <div class="amt" style="font-size:2.2rem;margin-top:8px">月980<small>円</small></div>
+      <p style="margin:6px 0 12px">毎週1つ、LINEで親に質問が届きます。答えは声でも文字でもOK。<b>1年たつと、52の話が一冊の本のデータに</b>なります。</p>
+      <button type="button" class="plan2" onclick="interest(this)">このプランに興味がある</button>
+    </div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>よくある質問</h2>
+  <details><summary>録音した音声はどう扱われますか？</summary><p>本の制作のためだけに使い、お届け後に削除します。録音する前に、ご本人の了解を得てください。</p></details>
+  <details><summary>紙の本にできますか？</summary><p>はい。印刷用のPDFをお渡しするので、オンラインの印刷サービスに1冊から注文できます。ご実家へ直接届けることもできます。</p></details>
+  <details><summary>話すのが苦手な親でも大丈夫？</summary><p>質問リストに沿って、答えてもらうだけで大丈夫です。話があちこちに飛んでも、AIが章ごとに整理します。</p></details>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <h2>この年末、親の話を残しませんか。</h2>
+  <form class="signup" onsubmit="return signup(this)">
+    <input id="email2" type="email" required placeholder="メールアドレス" aria-label="メールアドレス">
+    <button type="submit">先行案内を受け取る</button>
+  </form>
+  <p class="fine">特別価格と質問リストをお送りします。</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">おやのはなし（準備中のサービスです）。お届けするのは本のデータ（PDF）です。内容・価格は変更になる場合があります。<br>写真：Laura Fuhrman、Harry Borrett、Mlook 124 / Unsplash</div></footer>
+
+<script>
+// 先行登録：Googleフォーム「先行登録（4サービス共通）」に送信する
+const FORM_URL='https://docs.google.com/forms/d/1Etvq35bMj2UZWpLjMc_KZ6kxbBUc15xqKhJJnWf5DlU/formResponse';
+const SOURCE='oya-no-hanashi';
+let PLAN='';
+function interest(b){PLAN='weekly-980';b.textContent='ありがとうございます。下の欄からご登録ください';b.disabled=true;document.getElementById('email2').focus();}
+function signup(f){
+  const email=f.querySelector('input[type=email]').value.trim();
+  const body=new URLSearchParams({'entry.2106556167':email,'entry.1826001213':SOURCE+(location.search?' '+location.search:''),'entry.471251846':PLAN});
+  fetch(FORM_URL,{method:'POST',mode:'no-cors',body}).catch(()=>{});
+  f.outerHTML='<p class="ok">ご登録ありがとうございます。質問リストをお送りします。</p>';
+  return false;
+}
+</script>
+</body>
+</html>
