@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Japan Drops</title>
-<meta name="description" content="One weekly calendar of Japan-only releases, pre-order openings and lottery deadlines, converted to your time zone.">
+<meta name="description" content="One weekly calendar of Japan-only releases and pre-orders you can actually order from outside Japan, converted to your time zone.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Figtree:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -94,13 +94,13 @@ footer{padding-block:28px 44px;font-size:.82rem;color:var(--muted)}
 </style>
 </head>
 <body>
-<div class="ticker" aria-hidden="true"><div>LOTTERY CLOSES SUN 23:59 JST · PRE-ORDERS OPEN WED 11:00 JST · RE-RELEASE FRI · JAPAN-ONLY · LOTTERY CLOSES SUN 23:59 JST · PRE-ORDERS OPEN WED 11:00 JST · RE-RELEASE FRI · JAPAN-ONLY · </div></div>
+<div class="ticker" aria-hidden="true"><div>PRE-ORDERS OPEN WED 11:00 JST · RE-RELEASE FRI · SHIPS OVERSEAS · VIA PROXY · PRE-ORDERS OPEN WED 11:00 JST · RE-RELEASE FRI · SHIPS OVERSEAS · VIA PROXY · </div></div>
 
 <header class="hero"><div class="wrap hero-inner">
   <div>
     <span class="tag">Early access · Weekly</span>
     <h1>Never miss a <span class="hl">Japan-only</span> drop again.</h1>
-    <p class="lead">Japan-only releases, pre-orders and lottery deadlines. One calendar every Monday, in your time zone.</p>
+    <p class="lead">Japan-only releases and pre-orders you can order from abroad. One calendar every Monday, in your time zone.</p>
     <form class="signup" onsubmit="return signup(this)">
       <input id="email1" type="email" required placeholder="you@example.com" aria-label="Email address">
       <button type="submit">Send me the calendar</button>
@@ -111,9 +111,9 @@ footer{padding-block:28px 44px;font-size:.82rem;color:var(--muted)}
 
   <div class="cal" aria-label="Example weekly calendar">
     <div class="cal-hd"><b>This week</b><span>Times shown in <span id="tz">your time</span></span></div>
-    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-04T11:00:00+09:00" data-part="d">4</div><div class="w" data-jst="2026-11-04T11:00:00+09:00" data-part="w">Wed</div></div><div><h3>1/7 scale figure, shop-exclusive version</h3><p>Pre-orders open · <time data-jst="2026-11-04T11:00:00+09:00">11:00 JST</time></p></div><span class="kind pre">Pre-order</span></div>
-    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-06T10:00:00+09:00" data-part="d">6</div><div class="w" data-jst="2026-11-06T10:00:00+09:00" data-part="w">Fri</div></div><div><h3>Master Grade kit, event-limited color</h3><p>Online re-release · <time data-jst="2026-11-06T10:00:00+09:00">10:00 JST</time></p></div><span class="kind rel">Release</span></div>
-    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-08T23:59:00+09:00" data-part="d">8</div><div class="w" data-jst="2026-11-08T23:59:00+09:00" data-part="w">Sun</div></div><div><h3>Card game booster box, Japanese edition</h3><p>Lottery entry closes · <time data-jst="2026-11-08T23:59:00+09:00">23:59 JST</time></p></div><span class="kind lot">Lottery</span></div>
+    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-11T11:00:00+09:00" data-part="d">11</div><div class="w" data-jst="2026-11-11T11:00:00+09:00" data-part="w">Wed</div></div><div><h3>1/7 scale figure, shop-exclusive version</h3><p>Pre-orders open · ships overseas · <time data-jst="2026-11-11T11:00:00+09:00">11:00 JST</time></p></div><span class="kind pre">Pre-order</span></div>
+    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-13T10:00:00+09:00" data-part="d">13</div><div class="w" data-jst="2026-11-13T10:00:00+09:00" data-part="w">Fri</div></div><div><h3>Master Grade kit, event-limited color</h3><p>Online re-release · via proxy service · <time data-jst="2026-11-13T10:00:00+09:00">10:00 JST</time></p></div><span class="kind rel">Release</span></div>
+    <div class="ev"><div class="day"><div class="d" data-jst="2026-11-15T12:00:00+09:00" data-part="d">15</div><div class="w" data-jst="2026-11-15T12:00:00+09:00" data-part="w">Sun</div></div><div><h3>Card game booster box, Japanese edition</h3><p>Online pre-order closes · via proxy service · <time data-jst="2026-11-15T12:00:00+09:00">12:00 JST</time></p></div><span class="kind pre">Pre-order</span></div>
     <div class="cal-ft">Example format. Live issues name the exact items and shops.</div>
   </div>
 </div></header>
@@ -126,7 +126,7 @@ footer{padding-block:28px 44px;font-size:.82rem;color:var(--muted)}
 <section><div class="wrap">
   <h2>Easy to miss</h2>
   <div class="why">
-    <div><div class="big">抽選</div><h3>Lotteries, not checkouts</h3><p>Miss the window, miss the item.</p></div>
+    <div><div class="big">予約</div><h3>Pre-orders close early</h3><p>Miss the window, miss the item.</p></div>
     <div><div class="big">+9h</div><h3>Japan time</h3><p>We convert every deadline for you.</p></div>
     <div><div class="big">数時間</div><h3>Gone in hours</h3><p>We flag the fast sellers.</p></div>
   </div>
@@ -148,7 +148,7 @@ footer{padding-block:28px 44px;font-size:.82rem;color:var(--muted)}
 <section><div class="wrap">
   <h2>Questions</h2>
   <details><summary>Do you sell or buy items for me?</summary><p>No. Information only.</p></details>
-  <details><summary>Can I buy these from outside Japan?</summary><p>Each entry says if the shop ships overseas.</p></details>
+  <details><summary>Can I buy these from outside Japan?</summary><p>We only list items you can order from outside Japan: either the shop ships overseas, or a proxy service can buy it for you. Each entry says which. In-store-only items and lotteries limited to Japan residents are left out.</p></details>
   </div></section>
 </main>
 
