@@ -202,7 +202,7 @@ function signup(f){
   const email=f.querySelector('input[type=email]').value.trim();
   const body=new URLSearchParams({'entry.2106556167':email,'entry.1826001213':SOURCE+(location.search?' '+location.search:''),'entry.471251846':PLAN});
   fetch(FORM_URL,{method:'POST',mode:'no-cors',body}).catch(()=>{});
-  f.outerHTML='<p class="ok">ご登録ありがとうございます。質問リストをお送りします。</p>';
+  f.outerHTML='<p class="ok">ご登録ありがとうございます。質問リストは<a href="files/oya_questions.pdf" target="_blank" style="color:inherit;font-weight:bold;text-decoration:underline">こちらからダウンロード</a>できます（印刷して使えるPDF）。サービス開始時にはメールでご案内します。</p>';
   return false;
 }
 </script>

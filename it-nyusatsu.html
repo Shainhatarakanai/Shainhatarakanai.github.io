@@ -215,7 +215,7 @@ function signup(f){
   const email=f.querySelector('input[type=email]').value.trim();
   const body=new URLSearchParams({'entry.2106556167':email,'entry.1826001213':SOURCE+(location.search?' '+location.search:'')});
   fetch(FORM_URL,{method:'POST',mode:'no-cors',body}).catch(()=>{});
-  f.outerHTML='<p class="ok">ご登録ありがとうございます。公開時にご案内します。</p>';
+  f.outerHTML='<p class="ok">ご登録ありがとうございます。お礼に、<a href="files/it_weekly_latest.pdf" target="_blank" style="color:inherit;font-weight:bold;text-decoration:underline">今週の官公庁IT案件まとめ（PDF）</a>をどうぞ。公開時にはメールでご案内します。</p>';
   return false;
 }
 </script>
